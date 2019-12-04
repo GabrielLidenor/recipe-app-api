@@ -59,7 +59,7 @@ class PublicUserApiTests(TestCase):
         create_user(**payload)
         res = self.client.post(TOKEN_URL, payload)
 
-        self.assertInt('token', res.data)
+        self.assertIn('token', res.data)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
 
     def test_create_token_invalid_credentials(self):
